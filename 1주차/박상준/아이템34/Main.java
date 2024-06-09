@@ -1,19 +1,19 @@
-package 아이템5;
+package 아이템34;
 
 /**
- * packageName    : 아이템5
+ * packageName    : 아이템34
  * fileName       : Main
- * author         : sjunpark
- * date           : 24. 5. 21.
+ * author         : ipeac
+ * date           : 24. 6. 9.
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 24. 5. 21.        sjunpark       최초 생성
+ * 24. 6. 9.        ipeac       최초 생성
  */
 public class Main {
     public static void main(String[] args) {
-        SpellChecker spellChecker = new SpellChecker(new Lexicon());
-        spellChecker.isValid("hello");
+        System.out.println(PayrollDay.MONDAY.pay(10, 100));
+        System.out.println(PayrollDay.SATURDAY.pay(10, 100));
     }
 }

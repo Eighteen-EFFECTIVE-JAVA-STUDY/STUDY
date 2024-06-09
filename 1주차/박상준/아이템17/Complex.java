@@ -23,4 +23,13 @@ public final class Complex {
     public Complex plus(Complex c) {
         return new Complex(re + c.re, im + c.im);
     }
+
+    public Complex minus(Complex c) {
+        return new Complex(re - c.re, im - c.im);
+    }
+
+    public static void main(String[] args) {
+        Complex com = new Complex(1, 2).minus(new Complex(3, 4));
+        System.out.println(com.re + " " + com.im);
+    }
 }
