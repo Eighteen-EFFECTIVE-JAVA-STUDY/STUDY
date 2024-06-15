@@ -1,9 +1,13 @@
 package 아이템46;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toMap;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 /**
  * packageName    : 아이템46
@@ -18,24 +22,18 @@ import static java.util.stream.Collectors.toMap;
  */
 public class Main {
     public static void main(String[] args) {
-        Map<String, Suit> stringToEnum = Suit.stringToEnum;
-        System.out.println("stringToEnum = " + stringToEnum);
-    }
-    
-    enum Suit {
-        CLUB("클럽"),
-        DIAMOND("다이아몬드"),
-        HEART("하트"),
-        SPADE("스페이드");
+        // 단어 목록을 리스트로 생성
+        List<String> wordList = Arrays.asList("apple", "BANANA", "apple", "banana", "apple", "banana", "apple", "banana", "apple", "banana");
         
-        public final String description;
+        // 리스트를 스트림으로 변환
+        Stream<String> words = wordList.stream();
         
-        Suit(String description) {
-            this.description = description;
-        }
+        Map<String, Long> anagrams = words.collect(
+                groupingBy(String::toLowerCase, TreeMap::new, counting())
+        );
         
-        private static final Map<String, Suit> stringToEnum =
-                Stream.of(values()).collect(toMap(Object::toString, e -> e));
-        
+        anagrams.forEach((k, v) -> {
+            System.out.println(k + ": " + v);
+        });
     }
 }
