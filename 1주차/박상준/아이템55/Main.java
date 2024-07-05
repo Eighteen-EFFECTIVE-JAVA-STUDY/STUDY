@@ -25,6 +25,7 @@ public class Main {
                 Optional.of("Java")
         );
         
+        
         // Java 8 방식
         System.out.println("Java 8 방식:");
         Stream<String> resultJava8 = streamOfOptionals.stream()
